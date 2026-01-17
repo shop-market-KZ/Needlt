@@ -9,7 +9,7 @@
 /* ====== BACKGROUND ====== */
 body {
     min-height: 100vh;
-    background-image: url("background.jpeg");
+    background-image: url("img/background.jpeg");
     background-size: 74%;
     background-position: center;
     background-repeat: no-repeat;
@@ -171,3 +171,4 @@ body::before {
         background-size: 97%;
     }
 }
+
