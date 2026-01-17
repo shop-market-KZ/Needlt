@@ -41,10 +41,10 @@ body::before {
 
 /* Картинка Needlt */
 .needlt {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
-    align-items: center;
+    margin-left: 500px;
 }
 
 /* Логотип текст */
@@ -104,7 +104,7 @@ body::before {
 .main-btn {
     display: block;
     width: 220px;
-    margin: 0 auto 50px;
+    margin: 0 auto 20px;
     padding: 12px 0;
     text-align: center;
     text-decoration: none;
@@ -171,8 +171,3 @@ body::before {
         background-size: 97%;
     }
 }
-
-
-
-
-
