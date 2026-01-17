@@ -1,0 +1,173 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    background-image: url("background.jpeg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* ===== ЦВЕТ ПОВЕРХ КАРТИНКИ ===== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+/* ===== FORM CARD ===== */
+.skele {
+    width: 460px;
+    background-color: white;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    margin: 50px auto;
+    border-radius: 25px;
+    padding: 25px 0;
+}
+
+/* ===== TEXT ===== */
+h1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.section h2 {
+    font-size: 15px;
+    margin-left: 28px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* ===== INPUTS ===== */
+input, select {
+    width: 405px;
+    height: 42px;
+    margin: 12px auto 0;
+    display: block;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+input:focus, select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
+}
+
+/* ===== FILE ===== */
+.file-upload {
+    display: block;
+    width: 405px;
+    margin: 20px auto 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    border: 1px dashed #888;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.file-upload:hover {
+    border-color: #4a90e2;
+    color: #4a90e2;
+}
+
+.file-upload input {
+    display: none;
+}
+
+.preview img {
+    max-width: 100%;
+    max-height: 100px;
+    margin: 5px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    display: block;
+    width: 200px;
+    height: 44px;
+    margin: 30px auto 0;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===== NOTE ===== */
+.note {
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+    margin-top: 15px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    .skele {
+        width: 50%;
+        margin-top: 30px;
+    }
+
+    input,
+    select,
+    .file-upload {
+        width: 90%;
+    }
+
+    .btn {
+        width: 90%;
+    }
+
+    body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    background-image: url("background.jpeg");
+    background-size: 97%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+}

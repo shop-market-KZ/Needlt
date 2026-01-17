@@ -1,0 +1,173 @@
+/* ====== RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ====== BACKGROUND ====== */
+body {
+    min-height: 100vh;
+    background-image: url("background.jpeg");
+    background-size: 74%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* затемнение фона */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+/* ====== HEADER ====== */
+.header {
+    height: 80px;
+    padding: 0 30px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Обёртка для картинки + текста */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Картинка Needlt */
+.needlt {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+/* Логотип текст */
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #222;
+}
+
+/* Кнопка */
+.nav-btn {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* ====== MAIN ====== */
+.skele {
+    max-width: 800px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* ====== CARDS ====== */
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    transition: 0.4s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ====== BUTTON ====== */
+.main-btn {
+    display: block;
+    width: 220px;
+    margin: 0 auto 50px;
+    padding: 12px 0;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ====== 📱 MOBILE ====== */
+@media (max-width: 480px) {
+
+    /* Хедер */
+    .header {
+        flex-direction: column;       /* логотип + кнопка друг под другом */
+        height: auto;
+        padding: 15px;
+    }
+
+    .header-left {
+        gap: 10px;
+        margin-bottom: 10px;
+        justify-content: center;      /* центрируем логотип */
+    }
+
+    .needlt {
+        width: 80px;
+        height: 80px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-btn {
+        width: 90%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* MAIN */
+    .skele {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .card {
+        width: 50%;  /* под телефоны делаем почти на всю ширину */
+    }
+
+    .main-btn {
+        width: 90%;
+    }
+
+    body {
+        background-size: 97%;
+    }
+}
