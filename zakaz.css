@@ -10,7 +10,7 @@ body {
     padding: 0;
     min-height: 100vh;
 
-    background-image: url("background.jpeg");
+    background-image: url("img/background.jpeg");
     background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
@@ -175,3 +175,4 @@ input:focus, select:focus {
         font-size: 11px;
     }
 }
+
