@@ -2,10 +2,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> NeedIt </title>
+    <title>NeedIt — Заказы товаров</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="512x512" href="img/Needlt.jpeg">
+    <link rel="icon" type="image/png" sizes="512x512" href="Needlt.jpeg">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="header-left">
-            <img src="img/Needlt.jpeg" alt="NeedIt" class="needlt">
+            <img src="Needlt.jpeg" alt="NeedIt" class="needlt">
         </div>
     </header>
 
@@ -46,7 +46,7 @@
 
     <!-- BUTTON -->
     <a href="zakaz.html" class="main-btn">Оформить заказ</a>
+    <a href="kotolog" class="main-btn">Католог</a>
 
 </body>
 </html>
-
