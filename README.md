@@ -18,7 +18,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="header-left">
-            <img src="Needlt.jpeg" alt="NeedIt" class="needlt">
+            <img src="img/Needlt.jpeg" alt="NeedIt" class="needlt">
             <h1 class="logo">NeedIt</h1>
         </div>
     </header>
