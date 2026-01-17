@@ -28,7 +28,6 @@ body::before {
 .header {
     height: 80px;
     padding: 0 30px;
-    background: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -172,5 +171,6 @@ body::before {
         background-size: 97%;
     }
 }
+
 
 
