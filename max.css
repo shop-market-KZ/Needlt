@@ -8,7 +8,7 @@
 /* ====== BACKGROUND ====== */
 body {
     min-height: 100vh;
-    background-image: url("img/background.jpeg");
+    background-image: url("background.jpeg");
     background-size: 74%;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,7 +44,7 @@ body::before {
     width: 200px;
     height: 200px;
     object-fit: contain;
-    margin-left: 370px;
+    margin-left: 500px;
 }
 
 /* Логотип текст */
@@ -120,59 +120,63 @@ body::before {
     transform: scale(1.05);
 }
 
-/* ====== 📱 MOBILE ====== */
+/* ====== 📱 MOBILE ADAPTATION ====== */
 @media (max-width: 480px) {
 
-    /* Хедер */
+    /* HEADER */
     .header {
-        flex-direction: column;       /* логотип + кнопка друг под другом */
         height: auto;
-        padding: px;
-        align-items: center;
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
 
     .header-left {
-        gap: 10px;
-        margin-bottom: 10px;
-        justify-content: center;      /* центрируем логотип */
+        flex-direction: column;
+        gap: 8px;
     }
 
+    /* Логотип картинка */
     .needlt {
-        width: 150px;
-        height: 150px;
-        margin-left: 10px
+        width: 170px;
+        height: 170px;
+        margin-left: 0; /* убираем сдвиг */
     }
 
+    /* Текст логотипа */
     .logo {
-        font-size: 20px;
+        font-size: 22px;
     }
 
+    /* Кнопка */
     .nav-btn {
-        width: 90%;
-        text-align: center;
-        padding: 10px 0;
+        font-size: 14px;
+        padding: 8px 16px;
     }
 
     /* MAIN */
     .skele {
         flex-direction: column;
         align-items: center;
-        margin-top: 0px;
+        margin: 40px auto;
+        gap: 20px;
     }
 
+    /* Карточки */
     .card {
-        width: 50%;  /* под телефоны делаем почти на всю ширину */
-    }
-
-    .main-btn {
         width: 90%;
     }
 
+    /* Кнопка внизу */
+    .main-btn {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    /* Фон */
     body {
-        background-size: 97%;
+        background-size: 95%;
+        background-position: top center;
     }
 }
-
-
-
-
