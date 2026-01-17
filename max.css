@@ -1,4 +1,3 @@
-/* ====== RESET ====== */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +8,7 @@
 /* ====== BACKGROUND ====== */
 body {
     min-height: 100vh;
-    background-image: url("img/background.jpeg");
+    background-image: url("background.jpeg");
     background-size: 74%;
     background-position: center;
     background-repeat: no-repeat;
@@ -128,7 +127,7 @@ body::before {
     .header {
         flex-direction: column;       /* логотип + кнопка друг под другом */
         height: auto;
-        padding: 15px;
+        padding: px;
         align-items: center;
     }
 
@@ -157,7 +156,7 @@ body::before {
     .skele {
         flex-direction: column;
         align-items: center;
-        margin-top: 40px;
+        margin-top: 0px;
     }
 
     .card {
@@ -172,6 +171,7 @@ body::before {
         background-size: 97%;
     }
 }
+
 
 
 
