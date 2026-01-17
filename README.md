@@ -46,7 +46,7 @@
 
     <!-- BUTTON -->
     <a href="zakaz.html" class="main-btn">Оформить заказ</a>
-    <a href="kotolog" class="main-btn">Католог</a>
+    <a href="katalog.html" class="main-btn">Католог</a>
 
 </body>
 </html>
