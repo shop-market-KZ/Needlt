@@ -140,7 +140,7 @@ body::before {
     .needlt {
         width: 150px;
         height: 150px;
-        margin-left: 100px
+        margin-left: 10px
     }
 
     .logo {
@@ -172,6 +172,7 @@ body::before {
         background-size: 97%;
     }
 }
+
 
 
 
