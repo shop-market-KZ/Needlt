@@ -129,6 +129,7 @@ body::before {
         flex-direction: column;       /* логотип + кнопка друг под другом */
         height: auto;
         padding: 15px;
+        align-items: center;
     }
 
     .header-left {
@@ -138,8 +139,8 @@ body::before {
     }
 
     .needlt {
-        width: 80px;
-        height: 80px;
+        width: 150px;
+        height: 150px;
     }
 
     .logo {
@@ -171,4 +172,5 @@ body::before {
         background-size: 97%;
     }
 }
+
 
