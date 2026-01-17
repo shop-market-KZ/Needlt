@@ -45,6 +45,7 @@ body::before {
     width: 120px;
     height: 120px;
     object-fit: contain;
+    align-items: center;
 }
 
 /* Логотип текст */
@@ -171,6 +172,7 @@ body::before {
         background-size: 97%;
     }
 }
+
 
 
 
