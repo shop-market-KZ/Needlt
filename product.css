@@ -1,0 +1,92 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+}
+
+.back {
+    display: inline-block;
+    margin: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #357abd;
+    font-weight: 600;
+}
+
+.product-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+}
+
+.product-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.product-info h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.product-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.kupit {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 42px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.kupit:hover {
+    background: linear-gradient(135deg, #357abd, #2a5a9e);
+}
+
+/* Адаптив под телефоны */
+@media (max-width: 768px) {
+    .product-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .product-info {
+        text-align: center;
+    }
+}
