@@ -20,84 +20,113 @@
         <button data-filter="shorti">Шорты</button>
         <button data-filter="jinsi">Джинсы</button>
         <button data-filter="shoes">Обувь</button>
+        <button data-filter="toys">Игрушки</button>
     </div>
 </header>
 
 <main class="skele">
-
+    <!-- Джинсы -->
     <div class="card" data-category="jinsi">
-        <img src="img/Jinsi(1).png">
+        <img src="Jinsi(1).png">
         <p>Стандартные джинсы. Размер M</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Стандартные джинсы. Размер M">Заказать</a>
     </div>
 
+    <!-- Футболки -->
     <div class="card" data-category="tshirt">
-        <img src="img/T-shirt(1).png">
+        <img src="T-shirt(1).png">
         <p>Чёрная футболка. Размер M</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Чёрная футболка. Размер M">Заказать</a>
     </div>
 
+    <!-- Кепки -->
     <div class="card" data-category="kepka">
-        <img src="img/kepka(1).png">
+        <img src="kepka(1).png">
         <p>Голубая кепка</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Голубая кепка">Заказать</a>
     </div>
 
+    <!-- Куртки -->
     <div class="card" data-category="kurtka">
-        <img src="img/kurtka(1).png">
+        <img src="kurtka(1).png">
         <p>Зелёная куртка Lacoste</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Зелёная куртка Lacoste">Заказать</a>
     </div>
 
+    <!-- Обувь -->
     <div class="card" data-category="shoes">
-        <img src="img/shoise(1).png">
+        <img src="shoise(1).png">
         <p>Кроссовки Nike. Размер 42</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Кроссовки Nike. Размер 42">Заказать</a>
     </div>
-
+    
+    <!-- Шорты -->
     <div class="card" data-category="shorti">
-        <img src="img/shorti(1).png">
+        <img src="shorti(1).png">
         <p>Бело-чёрные шорты. Размер M</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Бело-чёрные шорты. Размер M">Заказать</a>
     </div>
 
+    <!-- Зипки -->
     <div class="card" data-category="zipka">
-        <img src="img/zipka(1).png">
+        <img src="zipka(1).png">
         <p>Чёрная зипка. Размер M</p>
         <p>Цена: ???</p>
         <a class="kupit" href="zakaz-katalog.html?product=Чёрная зипка. Размер M">Заказать</a>
     </div>
 
+    <!-- Игрушки -->
+    <div class="card" data-category="toys">
+        <img src="toys(1).png"> 
+        <p>Водяной бластер</p>
+        <p>Цена: ???</p>
+        <a class="kupit" href="zakaz-katalog.html?product=Водяной бластер">Заказать</a>
+    </div>
 </main>
 
 <script>
-const filterButtons = document.querySelectorAll('.filters button');
-const cards = document.querySelectorAll('.card');
+document.addEventListener('DOMContentLoaded', () => {
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
+    const container = document.querySelector('.skele');
+    const cards = Array.from(container.children);
 
-        filterButtons.forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
+    // Перемешивание карточек (Fisher–Yates)
+    for (let i = cards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
 
-        const filter = button.dataset.filter;
+    // Вставляем обратно в случайном порядке
+    cards.forEach(card => container.appendChild(card));
 
-        cards.forEach(card => {
-            card.style.display =
-                filter === 'all' || card.dataset.category === filter
-                ? 'flex'
-                : 'none';
+    // Фильтры
+    const filterButtons = document.querySelectorAll('.filters button');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+
+            filterButtons.forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.dataset.filter;
+
+            cards.forEach(card => {
+                card.style.display =
+                    filter === 'all' || card.dataset.category === filter
+                    ? 'flex'
+                    : 'none';
+            });
         });
     });
+
 });
 </script>
 
 </body>
-</html>
-
+</htm
