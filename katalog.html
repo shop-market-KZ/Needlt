@@ -11,9 +11,8 @@
 <header>
     <h1 class="Hello">Каталог товаров</h1>
 
-    <!-- КНОПКИ ФИЛЬТРА -->
     <div class="filters">
-        <button data-filter="all">Все</button>
+        <button data-filter="all" class="active">Все</button>
         <button data-filter="kepka">Кепки</button>
         <button data-filter="tshirt">Футболки</button>
         <button data-filter="zipka">Зипки</button>
@@ -27,80 +26,77 @@
 <main class="skele">
 
     <div class="card" data-category="jinsi">
-        <img src="img/Jinsi(1).png">
+        <img src="Jinsi(1).png">
         <p>Стандартные джинсы. Размер M</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Стандартные джинсы. Размер M">Заказать</a>
     </div>
 
     <div class="card" data-category="tshirt">
-        <img src="img/T-shirt(1).png">
+        <img src="T-shirt(1).png">
         <p>Чёрная футболка. Размер M</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Чёрная футболка. Размер M">Заказать</a>
     </div>
 
     <div class="card" data-category="kepka">
-        <img src="img/kepka(1).png">
+        <img src="kepka(1).png">
         <p>Голубая кепка</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Голубая кепка">Заказать</a>
     </div>
 
     <div class="card" data-category="kurtka">
-        <img src="img/kurtka(1).png">
+        <img src="kurtka(1).png">
         <p>Зелёная куртка Lacoste</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Зелёная куртка Lacoste">Заказать</a>
     </div>
 
     <div class="card" data-category="shoes">
-        <img src="img/shoise(1).png">
+        <img src="shoise(1).png">
         <p>Кроссовки Nike. Размер 42</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Кроссовки Nike. Размер 42">Заказать</a>
     </div>
 
     <div class="card" data-category="shorti">
-        <img src="img/shorti(1).png">
+        <img src="shorti(1).png">
         <p>Бело-чёрные шорты. Размер M</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Бело-чёрные шорты. Размер M">Заказать</a>
     </div>
 
     <div class="card" data-category="zipka">
-        <img src="img/zipka(1).png">
+        <img src="zipka(1).png">
         <p>Чёрная зипка. Размер M</p>
         <p>Цена: ???</p>
-        <a class="kupit">Заказать</a>
+        <a class="kupit" href="zakaz-katalog.html?product=Чёрная зипка. Размер M">Заказать</a>
     </div>
 
 </main>
 
 <script>
-const buttons = document.querySelectorAll('.filters button');
+const filterButtons = document.querySelectorAll('.filters button');
 const cards = document.querySelectorAll('.card');
 
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
 
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        filterButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
 
-        const filter = btn.dataset.filter;
+        const filter = button.dataset.filter;
 
         cards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display =
+                filter === 'all' || card.dataset.category === filter
+                ? 'flex'
+                : 'none';
         });
     });
 });
-
 </script>
+
 </body>
 </html>
-
-
