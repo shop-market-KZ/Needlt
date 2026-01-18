@@ -77,12 +77,13 @@
         document.getElementById('name').textContent = name;
         document.getElementById('desc').textContent = product.desc;
         document.getElementById('price').textContent = 'Цена: ' + product.price;
-        document.getElementById('img').src = img/product.img;
+        document.getElementById('img').src = product.img;
         document.getElementById('kupitBtn').href = `zakaz-katalog.html?product=${encodeURIComponent(name)}`;
     }
     </script>
 
 </body>
 </html>
+
 
 
