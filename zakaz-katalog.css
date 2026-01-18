@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.skele {
+    width: 500px;
+    height: auto;
+    background-color: whitesmoke;
+    margin-left: 420px;
+    margin-top: 50px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 15px black;
+    padding-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+h2 {
+    font-size: 15px;
+    margin-left: 46px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input, select {
+    width: 405px;
+    height: 42px;
+    margin: 12px auto 0;
+    display: block;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    height: 44px;
+    margin: 30px auto 0;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+
+    .skele {
+        width: 92%;
+        margin: 20px auto;
+        padding-bottom: 30px;
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 20px;
+        padding-top: 16px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+
+    h2 {
+        margin-left: 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        width: 90%;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 85%;
+        height: 42px;
+        font-size: 14px;
+    }
+}
