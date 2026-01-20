@@ -10,18 +10,13 @@
 
 <div class="skele">
     <form action="https://api.web3forms.com/submit" method="POST">
-
-        <!-- НАЗВАНИЕ ТОВАРА -->
         <h1 id="product-title">Товар</h1>
 
         <p class="subtitle">
             Заполните форму — мы свяжемся с вами в течение 10 минут
         </p>
 
-        <!-- КЛЮЧ WEB3FORMS -->
         <input type="hidden" name="access_key" value="87c687d6-5082-4a50-a0fe-c6801240e78f">
-
-        <!-- СКРЫТОЕ ПОЛЕ С ТОВАРОМ -->
         <input type="hidden" name="Product" id="product-input">
 
         <h2>Ваши данные</h2>
@@ -37,40 +32,27 @@
             <option value="Discord">Discord</option>
         </select>
 
-        <input
-            type="text"
-            id="contact-input"
-            name="Contact_value"
-            placeholder=""
-            style="display:none;"
-            required
-        >
+        <input type="text" id="contact-input" name="Contact_value" placeholder="" style="display:none;" required>
 
         <input type="text" name="Country" placeholder="Ваша страна" required>
-
         <h2 style="margin-top: 20px;">Оплата</h2>
         <input type="text" name="Payment" placeholder="Способ оплаты (название банка)">
-
         <button class="btn" type="submit">Отправить заявку</button>
     </form>
 </div>
 
 <script>
-/* ===== ПОЛУЧАЕМ ТОВАР ИЗ URL ===== */
 const params = new URLSearchParams(window.location.search);
 const product = params.get('product');
-
-if (product) {
+if(product){
     document.getElementById('product-title').textContent = product;
     document.getElementById('product-input').value = product;
 }
 
-/* ===== ЛОГИКА СПОСОБА СВЯЗИ ===== */
 const select = document.getElementById('contact-method');
 const contactInput = document.getElementById('contact-input');
-
 select.addEventListener('change', () => {
-    if (!select.value) {
+    if(!select.value){
         contactInput.style.display = 'none';
         contactInput.required = false;
     } else {
@@ -83,3 +65,4 @@ select.addEventListener('change', () => {
 
 </body>
 </html>
+
