@@ -28,26 +28,26 @@
 <main class="skele">
     <!-- Джинсы -->
     <div class="card" data-category="jinsi" data-name="Стандартные джинсы. Размер M" data-img="Jinsi(1).png">
-        <img src="Jinsi(1).png">
+        <img src="img/Jinsi(1).png">
         <p>Стандартные джинсы. Размер M</p>
         <p>Цена: ???</p>
         <a class="kupit" href="product.html?name=Стандартные джинсы. Размер M">Заказать</a>
     </div>
 
     <!-- Футболки -->
-    <div class="card" data-category="tshirt" data-name="Чёрная футболка. Размер M" data-img="T-shirt(1).png">
-        <img src="img/T-shirt(1).png">
-        <p>Чёрная футболка. Размер M</p>
-        <p>Цена: ???</p>
-        <a class="kupit" href="product.html?name=Чёрная футболка. Размер M">Заказать</a>
+    <div class="card" data-category="tshirt" data-name="Чёрная футболка" data-img="T-shirt(1).png">
+        <img src="img/Black T-shirt(1).jpeg">
+        <p>Чёрная футболка</p>
+        <p>Цена: 1 084₸</p>
+        <a class="kupit" href="product.html?name=Чёрная футболка">Заказать</a>
     </div>
 
     <!-- Кепки -->
-    <div class="card" data-category="kepka" data-name="Голубая кепка" data-img="kepka(1).png">
-        <img src="img/kepka(1).png">
-        <p>Голубая кепка</p>
-        <p>Цена: ???</p>
-        <a class="kupit" href="product.html?name=Голубая кепка">Заказать</a>
+    <div class="card" data-category="kepka" data-name="Чёрная кепка" data-img="kepka(1).png">
+        <img src="img/Black kepka(1).jpeg">
+        <p>Чёрная кепка</p>
+        <p>Цена: 1 080₸</p>
+        <a class="kupit" href="product.html?name=Чёрная кепка">Заказать</a>
     </div>
 
     <!-- Куртки -->
@@ -84,38 +84,38 @@
 
     <!-- Игрушки -->
     <div class="card" data-category="toys" data-name="Водяной бластер" data-img="toys(1).png">
-        <img src="img/toys(1).png">
+        <img src="img/Water gun(1).jpeg">
         <p>Водяной бластер</p>
-        <p>Цена: ???</p>
+        <p>Цена: 2 109₸</p>
         <a class="kupit" href="product.html?name=Водяной бластер">Заказать</a>
     </div>
 
     <!-- Футбольный мяч -->
     <div class="card" data-category="boll" data-name="UEFA EURO 2020 — adidas Uniforia" data-img="boll(1).png">
-        <img src="img/boll(1).png">
+        <img src="img/EURO2020(1).jpeg">
         <p>UEFA EURO 2020 — adidas Uniforia</p>
-        <p>Цена: ???</p>
+        <p>Цена: 2 910₸</p>
         <a class="kupit" href="product.html?name=UEFA EURO 2020 — adidas Uniforia">Заказать</a>
     </div>
 
-    <div class="card" data-category="boll" data-name="UEFA EURO 2020 — adidas UniforiaFIFA World Cup 2022 — adidas Al Rihla" data-img="boll(2).png">
-        <img src="img/boll(2).png">
+    <div class="card" data-category="boll" data-name="UEFA EURO 2020 — adidas UniforiaFIFA World Cup 2022 — adidas Al Rihla" data-img="boll(1).png">
+        <img src="img/Champion World 2022(1).jpeg">
         <p>FIFA World Cup 2022 — adidas Al Rihla</p>
-        <p>Цена: ???</p>
+        <p>Цена: 1 811₸</p>
         <a class="kupit" href="product.html?name=FIFA World Cup 2022 — adidas Al Rihla">Заказать</a>
     </div>
 
-    <div class="card" data-category="boll" data-name="UEFA EURO 2024 — adidas FUSSBALLLIEBE" data-img="boll(3).png">
-        <img src="img/boll(3).png">
+    <div class="card" data-category="boll" data-name="UEFA EURO 2024 — adidas FUSSBALLLIEBE" data-img="boll(1).png">
+        <img src="img/EURO2024(1).jpeg">
         <p>UEFA EURO 2024 — adidas FUSSBALLLIEBE</p>
-        <p>Цена: ???</p>
+        <p>Цена: 1 622₸</p>
         <a class="kupit" href="product.html?name=UEFA EURO 2024 — adidas FUSSBALLLIEBE">Заказать</a>
     </div>
 
-    <div class="card" data-category="boll" data-name="FIFA World Cup 2018 — adidas Telstar 18" data-img="boll(4).png">
-        <img src="img/boll(4).png">
+    <div class="card" data-category="boll" data-name="FIFA World Cup 2018 — adidas Telstar 18" data-img="boll(1).png">
+        <img src="img/Champion World 2018(1).jpeg">
         <p>FIFA World Cup 2018 — adidas Telstar 18</p>
-        <p>Цена: ???</p>
+        <p>Цена: 2 386₸</p>
         <a class="kupit" href="product.html?name=FIFA World Cup 2018 — adidas Telstar 18">Заказать</a>
     </div>
 </main>
@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const j = Math.floor(Math.random() * (i + 1));
         [cards[i], cards[j]] = [cards[j], cards[i]];
     }
+    cards.forEach(card => container.appendChild(card));
     cards.forEach(card => container.appendChild(card));
 
     // Фильтры
@@ -153,6 +154,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
-
-
-
