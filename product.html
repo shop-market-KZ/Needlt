@@ -7,27 +7,35 @@
     <link rel="stylesheet" href="product.css">
 </head>
 <body>
-    <a href="katalog.html" class="back">← Назад в каталог</a>
-    
-    <main class="product-wrapper">
 
-        <div class="product-card">
-            <img id="img" alt="Фото товара">
-            <div class="product-info">
-                <h2 id="name"></h2>
-                <p id="desc"></p>
-                <p id="price"></p>
-                <a class="kupit" id="kupitBtn" href="#">Заказать</a>
-            </div>
+<a href="katalog.html" class="back">← Назад в каталог</a>
+
+<main class="product-wrapper">
+    <div class="product-card">
+
+        <!-- ГЛАВНАЯ КАРТИНКА -->
+        <img id="mainImg" alt="Фото товара">
+
+        <!-- ГАЛЕРЕЯ -->
+        <div class="gallery" id="gallery"></div>
+
+        <div class="product-info">
+            <h2 id="name"></h2>
+            <p id="desc"></p>
+            <p id="price"></p>
+            <a class="kupit" id="kupitBtn" href="#">Заказать</a>
         </div>
-        
-    </main>
+    </div>
+</main>
 
-    <script>
-    // Подробные описания товаров
-    const products = {
+<script>
+const products = {
         "Стандартные джинсы. Размер M": {
-            img: "img/Jinsi(1).png",
+            imgs: [
+                "img/Jinsi(1).png",
+                "img/Jinsi(1).png",
+                "img/Jinsi(1).png"
+            ],
             desc: `
                 <b>Материал:</b><br>
                 Плотный хлопок с добавлением эластана.<br><br>
@@ -41,38 +49,54 @@
             price: "???"
         },
 
-        "Чёрная футболка. Размер M": {
-            img: "img/T-shirt(1).png",
+        "Чёрная футболка": {
+            imgs: [
+                "img/Black T-shirt(1).jpeg",
+                "img/Black T-shirt(2).jpeg",
+                "img/Black T-shirt(3).jpeg",
+            ],
             desc: `
-                <b>Материал:</b><br>
-                Натуральный хлопок, дышащая ткань.<br><br>
+                <b>Материал: хлопок/ хлопковая ткань</b> <br><br>
 
-                <b>Крой:</b><br>
-                Классический прямой.<br><br>
+                <b>Тип воротника: садовый воротник</b> <br><br>
 
-                <b>Особенности:</b><br>
-                Универсальная модель для спорта и повседневной носки.
+                <b>Длина рукава: короткий рукав</b> <br><br>
+
+                <b>Детали стиля одежды: сплошной цвет</b> <br><br>
+
+                <b>Функция: антебактериальный, дышащий, противоскользящий</b> <br><br>
+
+                <b>Применимые сценарии: поведневная жизнь, путишестиве, бизнес</b> <br><br>
+
+                <b>Применимый сезон: весна, осень, лето, неограниченное количнство сезонов</b> <br><br>
             `,
-            price: "???"
+            price: "1 084₸"
         },
 
-        "Голубая кепка": {
-            img: "img/kepka(1).png",
+        "Чёрная кепка": {
+            imgs: [
+                "img/Black kepka(1).jpeg",
+                "img/Black kepka(2).jpeg",
+                "img/Black kepka(3).jpeg",
+            ],
             desc: `
-                <b>Материал:</b><br>
-                Лёгкий текстиль.<br><br>
+                <b>Материал: хлопок </b> <br> <br>
 
-                <b>Конструкция:</b><br>
-                Регулируемая застёжка.<br><br>
+                <b>Функция: солнце защитный</b> <br><br>
 
-                <b>Особенности:</b><br>
-                Защита от солнца, комфорт при жаркой погоде.
+                <b>Применимый сезон; неограниченное количество сезонов</b> <br> <br>
+
+                <b>Применимый пол: универсальный<b/>
             `,
-            price: "???"
+            price: "1 080₸"
         },
 
         "Зелёная куртка Lacoste": {
-            img: "img/kurtka(1).png",
+            imgs: [
+                "img/kurtka(1).png",
+                "img/kurtka(1).png",
+                "img/kurtka(1).png",
+            ],
             desc: `
                 <b>Материал:</b><br>
                 Водоотталкивающая ткань с утеплением.<br><br>
@@ -87,7 +111,11 @@
         },
 
         "Кроссовки Nike. Размер 42": {
-            img: "img/shoise(1).png",
+            imgs: [
+                "img/shoise(1).png",
+                "img/shoise(1).png",
+                "img/shoise(1).png",
+            ],
             desc: `
                 <b>Материал:</b><br>
                 Дышащий текстиль и синтетика.<br><br>
@@ -102,7 +130,11 @@
         },
 
         "Бело-чёрные шорты. Размер M": {
-            img: "img/shorti(1).png",
+            imgs: [
+                "img/shorti(1).png",
+                "img/shorti(1).png",
+                "img/shorti(1).png",
+            ],
             desc: `
                 <b>Материал:</b><br>
                 Лёгкая дышащая ткань.<br><br>
@@ -117,7 +149,11 @@
         },
 
         "Чёрная зипка. Размер M": {
-            img: "img/zipka(1).png",
+            imgs: [
+                "img/zipka(1).png",
+                "img/zipka(1).png",
+                "img/zipka(1).png",
+            ],
             desc: `
                 <b>Материал:</b><br>
                 Мягкий тёплый текстиль.<br><br>
@@ -132,22 +168,27 @@
         },
 
         "Водяной бластер": {
-            img: "img/toys(1).png",
+            imgs: [
+                "img/Water gun(1).jpeg",
+                "img/Water gun(2).jpeg",
+                "img/Water gun(3).jpeg",
+            ],
             desc: `
-                <b>Материал:</b><br>
-                Прочный безопасный пластик.<br><br>
+                Материал: пластмасса <br><br>
 
-                <b>Использование:</b><br>
-                Игры на улице и активный отдых.<br><br>
+                Виды игрушек для игры в воде: водяной пистолет <br><br>
 
-                <b>Особенности:</b><br>
-                Лёгкий, удобный, быстро заправляется водой.
+                Тип продукта: игрушки с водяными брызгами
             `,
-            price: "???"
+            price: "2 109₸"
         },
 
         "UEFA EURO 2020 — adidas Uniforia": {
-            img: "img/boll(1).png",
+            imgs: [
+                "img/EURO2020(1).jpeg",
+                "img/EURO2020(2).jpeg",
+                "img/EURO2020(3).jpeg",
+            ],
             desc: `
                 <b>Материал и конструкция:</b><br>
                 Термосшитая (бесшовная) поверхность из полиуретана (PU).<br><br>
@@ -158,10 +199,14 @@
                 <b>Особенности:</b><br>
                 Uniforia — символ единства Европы.
                 `,
-            price: "???"
+            price: "2 910₸"
         },
         "FIFA World Cup 2022 — adidas Al Rihla": {
-            img: "img/boll(2).png",
+            imgs: [
+                "img/Champion World 2022(1).jpeg",
+                "img/Champion World 2022(2).jpeg",
+                "img/Champion World 2022(3).jpeg",
+            ],
             desc: `
                 <b>Материал и поверхность:</b><br>
                 Бесшовная термосшитая оболочка из синтетической кожи на основе полиуретана (PU) с макро- и микротекстурой для улучшенного контроля и стабильного полёта мяча.<br><br>
@@ -181,11 +226,15 @@
                 <b>Применение:</b><br>
                 Официальный матчевый мяч FIFA World Cup 2022™, подходит для профессиональной игры на травяных покрытиях.
             `,
-            price: "???"
+            price: "1 811₸"
         },
 
         "UEFA EURO 2024 — adidas FUSSBALLLIEBE": {
-            img: "img/boll(3).png",
+            imgs: [
+                "img/EURO2024(1).jpeg",
+                "img/EURO2024(2).jpeg",
+                "img/EURO2024(3).jpeg",
+            ],
             desc: `
                 <b>Материал и поверхность:</b><br>
                 Бесшовная термосшитая оболочка из высококачественного полиуретана (PU) с усовершенствованной микротекстурой для точного контроля мяча и уверенной игры в любых погодных условиях.<br><br>
@@ -205,10 +254,14 @@
                 <b>Применение:</b><br>
                 Официальный матчевый мяч чемпионата Европы UEFA EURO 2024™, предназначен для профессиональных матчей на натуральных газонах.
             `,
-            price: "???"
+            price: "1 622₸"
         },
         "FIFA World Cup 2018 — adidas Telstar 18": {
-            img: "img/boll(4).png",
+            imgs: [
+                "img/Champion World 2018(1).jpeg",
+                "img/Champion World 2018(2).jpeg",
+                "img/Champion World 2018(3).jpeg",
+            ],
             desc: `
                 <b>Материал и поверхность:</b><br>
                 Бесшовная поверхность из синтетической кожи на основе полиуретана (PU) с текстурированным покрытием для улучшенного сцепления, контроля и точности ударов при любой погоде.<br><br>
@@ -225,29 +278,48 @@
                 <b>Особенности:</b><br>
                 Telstar 18 — современная интерпретация легендарного мяча Telstar 1970 года, официальный мяч чемпионата мира FIFA 2018 в России.
             `,
-            price: "???"
+            price: "2 386₸"
         },
 
 
 
     };
 
+// ===== ЛОГИКА =====
 const params = new URLSearchParams(window.location.search);
-    const name = params.get('name');
-    const product = products[name];
+const name = params.get('name');
+const product = products[name];
 
-    if(product){
-        document.getElementById('name').textContent = name;
-        document.getElementById('desc').innerHTML = product.desc;
-        document.getElementById('price').textContent = 'Цена: ' + product.price;
-        document.getElementById('img').src = product.img;
+const mainImg = document.getElementById('mainImg');
+const gallery = document.getElementById('gallery');
 
-        document.getElementById('kupitBtn').href = `zakaz-katalog.html?product=${encodeURIComponent(name)}`;
+if (product) {
+    document.getElementById('name').textContent = name;
+    document.getElementById('desc').innerHTML = product.desc;
+    document.getElementById('price').textContent = 'Цена: ' + product.price;
+
+    // ЕСЛИ НЕСКОЛЬКО КАРТИНОК
+    if (product.imgs) {
+        mainImg.src = product.imgs[0];
+        gallery.innerHTML = '';
+
+        product.imgs.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.onclick = () => mainImg.src = src;
+            gallery.appendChild(img);
+        });
+    }
+    // ЕСЛИ ОДНА КАРТИНКА
+    else {
+        mainImg.src = product.img;
+        gallery.style.display = 'none';
     }
 
-    </script>
+    document.getElementById('kupitBtn').href =
+        `zakaz-katalog.html?product=${encodeURIComponent(name)}`;
+}
+</script>
 
 </body>
 </html>
-
-
