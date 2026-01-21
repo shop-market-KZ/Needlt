@@ -26,6 +26,11 @@
             <a class="kupit" id="kupitBtn" href="#">Заказать</a>
         </div>
     </div>
+
+    <div id="imgOverlay">
+        <img id="zoomImg">
+    </div>
+    
 </main>
 
 <script>
@@ -298,28 +303,39 @@ if (product) {
     document.getElementById('desc').innerHTML = product.desc;
     document.getElementById('price').textContent = 'Цена: ' + product.price;
 
-    // ЕСЛИ НЕСКОЛЬКО КАРТИНОК
-    if (product.imgs) {
-        mainImg.src = product.imgs[0];
-        gallery.innerHTML = '';
+    mainImg.src = product.imgs[0];
 
-        product.imgs.forEach(src => {
-            const img = document.createElement('img');
-            img.src = src;
-            img.onclick = () => mainImg.src = src;
-            gallery.appendChild(img);
-        });
-    }
-    // ЕСЛИ ОДНА КАРТИНКА
-    else {
-        mainImg.src = product.img;
-        gallery.style.display = 'none';
-    }
+    product.imgs.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.onclick = () => mainImg.src = src;
+        gallery.appendChild(img);
+    });
 
     document.getElementById('kupitBtn').href =
         `zakaz-katalog.html?product=${encodeURIComponent(name)}`;
 }
+
+/* ===== ZOOM ===== */
+const overlay = document.getElementById('imgOverlay');
+const zoomImg = document.getElementById('zoomImg');
+
+mainImg.onclick = () => {
+    zoomImg.src = mainImg.src;
+    overlay.style.display = 'flex';
+};
+
+overlay.onclick = () => {
+    overlay.style.display = 'none';
+};
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        overlay.style.display = 'none';
+    }
+});
 </script>
 
 </body>
 </html>
+
