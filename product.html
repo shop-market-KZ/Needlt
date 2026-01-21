@@ -317,37 +317,27 @@ if (product) {
         `zakaz-katalog.html?product=${encodeURIComponent(name)}`;
 }
 
-// ===== ZOOM ДЛЯ ПК + ТЕЛЕФОНОВ =====
+// ===== LIGHTBOX =====
 const overlay = document.getElementById('imgOverlay');
 const zoomImg = document.getElementById('zoomImg');
 
-let startY = 0;
-
-// открыть увеличение
+// открыть при клике на основную картинку
 mainImg.addEventListener('click', () => {
     zoomImg.src = mainImg.src;
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden'; // блок скролла
 });
 
-// закрыть по клику
-overlay.addEventListener('click', closeZoom);
-
-// закрыть по Esc (ПК)
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeZoom();
-});
-
-// свайп вниз (телефон)
-overlay.addEventListener('touchstart', e => {
-    startY = e.touches[0].clientY;
-});
-
-overlay.addEventListener('touchmove', e => {
-    const currentY = e.touches[0].clientY;
-    if (currentY - startY > 80) {
+// закрыть при клике на фон или на картинку
+overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target === zoomImg) {
         closeZoom();
     }
+});
+
+// закрыть по Esc
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeZoom();
 });
 
 // функция закрытия
@@ -359,5 +349,6 @@ function closeZoom() {
 
 </body>
 </html>
+
 
 
