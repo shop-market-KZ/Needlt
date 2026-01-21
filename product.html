@@ -304,6 +304,7 @@ if (product) {
     document.getElementById('price').textContent = 'Цена: ' + product.price;
 
     mainImg.src = product.imgs[0];
+    gallery.innerHTML = '';
 
     product.imgs.forEach(src => {
         const img = document.createElement('img');
@@ -316,26 +317,47 @@ if (product) {
         `zakaz-katalog.html?product=${encodeURIComponent(name)}`;
 }
 
-/* ===== ZOOM ===== */
+// ===== ZOOM ДЛЯ ПК + ТЕЛЕФОНОВ =====
 const overlay = document.getElementById('imgOverlay');
 const zoomImg = document.getElementById('zoomImg');
 
-mainImg.onclick = () => {
+let startY = 0;
+
+// открыть увеличение
+mainImg.addEventListener('click', () => {
     zoomImg.src = mainImg.src;
     overlay.style.display = 'flex';
-};
+    document.body.style.overflow = 'hidden'; // блок скролла
+});
 
-overlay.onclick = () => {
-    overlay.style.display = 'none';
-};
+// закрыть по клику
+overlay.addEventListener('click', closeZoom);
 
+// закрыть по Esc (ПК)
 document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-        overlay.style.display = 'none';
+    if (e.key === 'Escape') closeZoom();
+});
+
+// свайп вниз (телефон)
+overlay.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+});
+
+overlay.addEventListener('touchmove', e => {
+    const currentY = e.touches[0].clientY;
+    if (currentY - startY > 80) {
+        closeZoom();
     }
 });
+
+// функция закрытия
+function closeZoom() {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+}
 </script>
 
 </body>
 </html>
+
 
