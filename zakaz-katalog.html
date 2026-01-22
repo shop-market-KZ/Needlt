@@ -21,6 +21,28 @@
 
         <h2>Ваши данные</h2>
 
+        <!-- РАЗМЕР ОДЕЖДЫ -->
+        <select id="clothes-size" name="Clothes_size" style="display:none;">
+            <option value="">Выберите размер одежды</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XL">XXL</option>
+            <option value="XL">XXXL</option>
+        </select>
+
+        <!-- РАЗМЕР ОБУВИ -->
+        <input type="number"
+            id="shoe-size"
+            name="Shoe_size"
+            placeholder="Размер стопы"
+            style="display:none;"
+            min="36"
+            max="44">
+
+
         <input type="text" name="Name" placeholder="Ваше имя" required>
 
         <select id="contact-method" name="Contact_method" required>
@@ -61,8 +83,39 @@ select.addEventListener('change', () => {
         contactInput.required = true;
     }
 });
+
+
+
+const queryParams = new URLSearchParams(window.location.search);
+const productName = queryParams.get('product');
+
+const productTitleEl = document.getElementById('product-title');
+const productInputEl = document.getElementById('product-input');
+
+const apparelSizeSelect = document.getElementById('clothes-size');
+const footwearSizeInput = document.getElementById('shoe-size');
+
+if (productName) {
+    productTitleEl.textContent = productName;
+    productInputEl.value = productName;
+
+    const productNameLower = productName.toLowerCase();
+
+    // 👕 одежда
+    if (productNameLower.includes('футболка')) {
+        apparelSizeSelect.style.display = 'block';
+        apparelSizeSelect.required = true;
+    }
+
+    // 👟 обувь
+    if (productNameLower.includes('кеды')) {
+        footwearSizeInput.style.display = 'block';
+        footwearSizeInput.required = true;
+    }
+}
+
+
 </script>
 
 </body>
 </html>
-
