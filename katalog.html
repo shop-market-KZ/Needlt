@@ -62,32 +62,45 @@
         <a class="kupit" href="product.html?name=Серые кеды">Заказать</a>
     </div>
     <!--США-->
-    <div class="card" data-category="shoes" data-name="Nike Kids Air Force 1 Low LE White On White Sneakers data-img="shoise(1).png">
-        <img src="img/Nike Kids Air Force 1 Low LE White On White Sneakers(1).JPEG">
+    <div class="card" data-category="shoes" data-name="Nike Kids Air Force 1 Low LE White On White Sneakers" data-img="shoise(1).png">
+        <!-- Кнопка для оригинала -->
+        <button class="original-btn">⭐</button>
+        <img src="img/Nike Kids Air Force 1 Low LE White On White Sneakers(1).jpeg">
         <p>Nike Kids Air Force 1 Low LE "White On White" Sneakers</p>
-        <h3>Цена: 48 298₸</h3>
+        <h3>Цена: 48298₸</h3>
         <a class="kupit" href="product.html?name=Nike Kids Air Force 1 Low LE White On White Sneakers">Заказать</a>
+        <!-- Надпись "Оригинал" -->
+        <div class="original-label">Оригинал</div>
     </div>
 
     <div class="card" data-category="shoes" data-name="Nike Dunk Low Retro White Black Panda GS" data-img="shoise(1).png">
+        <!-- Кнопка для оригинала -->
+        <button class="original-btn">⭐</button>
         <img src="img/Nike Dunk Low Retro White Black Panda GS(1).jpeg">
         <p>Nike Dunk Low Retro White Black Panda GS</p>
         <h3>Цена: 42 197₸</h3>
         <a class="kupit" href="product.html?name=Nike Dunk Low Retro White Black Panda GS">Заказать</a>
+        <div class="original-label">Оригинал</div>
     </div>
 
     <div class="card" data-category="shoes" data-name="Nike Dunk Low Photon Dust Women's" data-img="shoise(1).png">
+        <!-- Кнопка для оригинала -->
+        <button class="original-btn">⭐</button>
         <img src="img/Nike Dunk Low Photon Dust Women's(1).jpeg">
         <p>Nike Dunk Low Photon Dust Women's</p>
         <h3>Цена: 48 952₸</h3>
         <a class="kupit" href="product.html?name=Nike Dunk Low Photon Dust Women's">Заказать</a>
+        <div class="original-label">Оригинал</div>
     </div>
 
     <div class="card" data-category="shoes" data-name="Nike Revolution 6 Next Nature Black White" data-img="shoise(1).png">
+        <!-- Кнопка для оригинала -->
+        <button class="original-btn">⭐</button>
         <img src="img/Nike Revolution 6 Next Nature Black White(1).jpeg">
         <p>Nike Revolution 6 Next Nature Black White</p>
         <h3>Цена: 39 764₸</h3>
         <a class="kupit" href="product.html?name=Nike Revolution 6 Next Nature Black White">Заказать</a>
+        <div class="original-label">Оригинал</div>
     </div>
 
     <!-- Игрушки -->
@@ -139,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         [cards[i], cards[j]] = [cards[j], cards[i]];
     }
     cards.forEach(card => container.appendChild(card));
-    cards.forEach(card => container.appendChild(card));
 
     // Фильтры
     const filterButtons = document.querySelectorAll('.filters button');
@@ -157,10 +169,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // ===== КНОПКА ОРИГИНАЛ =====
+    cards.forEach(card => {
+        const btn = card.querySelector('.original-btn');
+        const label = card.querySelector('.original-label');
+
+        if(btn && label){
+            btn.addEventListener('click', () => {
+                label.style.display = label.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+    });
 });
 </script>
 
 </body>
 </html>
-
-
