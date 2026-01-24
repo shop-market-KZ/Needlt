@@ -95,7 +95,7 @@ body {
 #imgOverlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5); /* затемнение фона */
+    background: rgba(0,0,0,0.5);
     display: none;
     align-items: center;
     justify-content: center;
@@ -111,7 +111,7 @@ body {
 }
 
 #price {
-    font-size: 1.17em; /* стандартный размер h3 */
+    font-size: 1.17em;
     font-weight: 600;
     margin: 0.5em 0;
 }
@@ -119,15 +119,18 @@ body {
 .size-box {
     margin: 15px 0;
 }
+
 .size-box p {
     margin-bottom: 8px;
     font-weight: 600;
 }
+
 .sizes {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
+
 .size-btn {
     padding: 8px 14px;
     border: 1px solid #ccc;
@@ -136,15 +139,18 @@ body {
     border-radius: 6px;
     font-weight: 500;
 }
+
 .size-btn.active {
     border-color: #000;
     background: #000;
     color: #fff;
 }
+
 .kupit.disabled {
     pointer-events: none;
     opacity: .5;
 }
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
     .product-card {
@@ -200,5 +206,26 @@ body {
 
     .gallery img {
         width: 55px;
+    }
+}
+
+/* ===== МОБИЛЬНЫЕ РАЗМЕРЫ ===== */
+@media (max-width: 480px) {
+    .size-btn {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .kupit {
+        font-size: 15px;
+        padding: 12px 0;
+    }
+
+    .product-info h2 {
+        font-size: 18px;
+    }
+
+    .product-info p {
+        font-size: 13px;
     }
 }
