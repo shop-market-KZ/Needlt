@@ -10,14 +10,17 @@
 
 <div class="skele">
     <form action="https://api.web3forms.com/submit" method="POST">
+
         <h1 id="product-title">Товар</h1>
+        <p class="subtitle">Заполните форму — мы свяжемся с вами в течение 10 минут</p>
 
-        <p class="subtitle">
-            Заполните форму — мы свяжемся с вами в течение 10 минут
-        </p>
-
+        <!-- Web3Forms -->
         <input type="hidden" name="access_key" value="87c687d6-5082-4a50-a0fe-c6801240e78f">
+
+        <!-- ДАННЫЕ ТОВАРА -->
         <input type="hidden" name="Product" id="product-input">
+        <input type="hidden" name="Size" id="size-input">
+        <input type="hidden" name="Price" id="price-input">
 
         <h2>Ваши данные</h2>
 
@@ -29,95 +32,122 @@
             <option value="M">M</option>
             <option value="L">L</option>
             <option value="XL">XL</option>
-            <option value="XL">XXL</option>
-            <option value="XL">XXXL</option>
+            <option value="XXL">XXL</option>
+            <option value="XXXL">XXXL</option>
         </select>
 
         <!-- РАЗМЕР ОБУВИ -->
-        <input type="number"
+        <input
+            type="number"
             id="shoe-size"
             name="Shoe_size"
-            placeholder="Размер стопы"
+            placeholder="Размер обуви"
             style="display:none;"
-            min="36"
-            max="44">
-
+            min="35"
+            max="46"
+        >
 
         <input type="text" name="Name" placeholder="Ваше имя" required>
 
+        <!-- СПОСОБ СВЯЗИ -->
         <select id="contact-method" name="Contact_method" required>
             <option value="">Выберите способ связи</option>
             <option value="Telegram">Telegram</option>
-            <option value="Email">Email</option>
             <option value="WhatsApp">WhatsApp</option>
             <option value="Instagram">Instagram</option>
+            <option value="Email">Email</option>
             <option value="Discord">Discord</option>
         </select>
 
-        <input type="text" id="contact-input" name="Contact_value" placeholder="" style="display:none;" required>
+        <input
+            type="text"
+            id="contact-input"
+            name="Contact_value"
+            placeholder=""
+            style="display:none;"
+        >
 
         <input type="text" name="Country" placeholder="Ваша страна" required>
-        <h2 style="margin-top: 20px;">Оплата</h2>
-        <input type="text" name="Payment" placeholder="Способ оплаты (название банка)">
-        <p class="subtitle" style="padding-top: 24px;">Оплата идёт без учёта доставки</p>
+
+        <h2 style="margin-top:20px;">Оплата</h2>
+        <input type="text" name="Payment" placeholder="Способ оплаты (банк)">
+
+        <p class="subtitle" style="padding-top:20px;">
+            Оплата идёт без учёта доставки
+        </p>
+
         <button class="btn" type="submit">Отправить заявку</button>
     </form>
 </div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
+
 const product = params.get('product');
-if(product){
-    document.getElementById('product-title').textContent = product;
-    document.getElementById('product-input').value = product;
+const size = params.get('size');
+const price = params.get('price');
+
+// элементы
+const productTitle = document.getElementById('product-title');
+const productInput = document.getElementById('product-input');
+const sizeInput = document.getElementById('size-input');
+const priceInput = document.getElementById('price-input');
+
+const clothesSize = document.getElementById('clothes-size');
+const shoeSize = document.getElementById('shoe-size');
+
+// ===== ЗАПОЛНЕНИЕ =====
+if (product) {
+    productTitle.textContent = product;
+    productInput.value = product;
 }
 
-const select = document.getElementById('contact-method');
+if (size) {
+    sizeInput.value = size;
+}
+
+if (price) {
+    priceInput.value = price + " ₸";
+}
+
+// ===== ЛОГИКА РАЗМЕРОВ =====
+if (product) {
+    const p = product.toLowerCase();
+
+    // 👕 одежда
+    if (p.includes('футболка')) {
+        clothesSize.style.display = 'block';
+        clothesSize.required = true;
+        if (size) clothesSize.value = size;
+    }
+
+    // 👟 обувь
+    if (
+        p.includes('кеды') ||
+        p.includes('nike') ||
+        p.includes('air force')
+    ) {
+        shoeSize.style.display = 'block';
+        shoeSize.required = true;
+        if (size) shoeSize.value = size;
+    }
+}
+
+// ===== СПОСОБ СВЯЗИ =====
+const contactSelect = document.getElementById('contact-method');
 const contactInput = document.getElementById('contact-input');
-select.addEventListener('change', () => {
-    if(!select.value){
+
+contactSelect.addEventListener('change', () => {
+    if (!contactSelect.value) {
         contactInput.style.display = 'none';
         contactInput.required = false;
     } else {
         contactInput.style.display = 'block';
-        contactInput.placeholder = 'Введите ' + select.value;
+        contactInput.placeholder = 'Введите ' + contactSelect.value;
         contactInput.required = true;
     }
 });
-
-
-
-const queryParams = new URLSearchParams(window.location.search);
-const productName = queryParams.get('product');
-
-const productTitleEl = document.getElementById('product-title');
-const productInputEl = document.getElementById('product-input');
-
-const apparelSizeSelect = document.getElementById('clothes-size');
-const footwearSizeInput = document.getElementById('shoe-size');
-
-if (productName) {
-    productTitleEl.textContent = productName;
-    productInputEl.value = productName;
-
-    const productNameLower = productName.toLowerCase();
-
-    // 👕 одежда
-    if (productNameLower.includes('футболка')) {
-        apparelSizeSelect.style.display = 'block';
-        apparelSizeSelect.required = true;
-    }
-
-    // 👟 обувь
-    if (productNameLower.includes('кеды')) {
-        footwearSizeInput.style.display = 'block';
-        footwearSizeInput.required = true;
-    }
-}
-
-
 </script>
 
 </body>
 </html>
-
