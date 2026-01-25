@@ -462,10 +462,113 @@ const products = {
                         "⚽":  2386,
                     }
         },
+        "Nike Sportswear Tech Fleece Windrunner Full Zip Hoodie FW24": {
+            imgs: [
+                "img/Nike Sportswear Tech Fleece Windrunner Full Zip Hoodie FW24(1).jpeg",
+                "img/Nike Sportswear Tech Fleece Windrunner Full Zip Hoodie FW24(2).jpeg",
+                "img/Nike Sportswear Tech Fleece Windrunner Full Zip Hoodie FW24(3).jpeg",
+            ],
+            desc: `
+                <b>Материал и поверхность:</b><br>
+                Бесшовная поверхность из высококачественного полиуретана (PU) с микротекстурой, обеспечивающая тепло, комфорт и улучшенную воздухопроницаемость.<br><br>
+
+                <b>Конструкция:</b><br>
+                Капюшон с регулировкой, длинные рукава с резинкой на манжетах, прорезные карманы спереди для хранения мелочей и рук. Молния по всей длине для удобного снятия и надевания.<br><br>
+
+                <b>Особенности:</b><br>
+                Лёгкая, но тёплая толстовка, идеально подходит для тренировок и повседневной носки. Эргономичный крой обеспечивает свободу движений.<br><br>
+
+                <b>Технологии:</b><br>
+                Технология Tech Fleece обеспечивает тепло без лишнего объема, материал быстро сохнет и легко стирается. Отличная посадка по фигуре.<br><br>
+
+                <b>Применение:</b><br>
+                Подходит для активного отдыха, занятий спортом и повседневного ношения в холодное время года.<br><br>
+
+                <b>Дизайн:</b><br>
+                Стильный минималистичный дизайн, фирменный логотип Nike, универсальный чёрный цвет, сочетается с любой одеждой.
+
+            `,
+            sizes: {
+                        "XS": 97462,
+                        "S": 54885,
+                        "M": 54885,
+                        "L": 54885,
+                        "XL": 54885,
+                        "XXL": 54791,
+                        "XXXL": 56463
+                    }
+        },
+
+        "Nike Tech Fleece Zip up Hoodie": {
+            imgs: [
+                "img/Nike Tech Fleece Zip up Hoodie(1).jpeg",
+                "img/Nike Tech Fleece Zip up Hoodie(2).jpeg",
+                "img/Nike Tech Fleece Zip up Hoodie(3).jpeg",
+            ],
+            desc: `
+                <b>Материал и поверхность:</b><br>
+                Лёгкий и тёплый материал Tech Fleece с мягкой внутренней подкладкой обеспечивает тепло и комфорт без лишнего объёма.<br><br>
+
+                <b>Конструкция:</b><br>
+                Полная молния спереди, капюшон с регулировкой, длинные рукава с эластичными манжетами, два прорезных кармана спереди для рук и мелких предметов.<br><br>
+
+                <b>Особенности:</b><br>
+                Толстовка отлично сохраняет тепло, обеспечивает свободу движений и подходит для повседневной носки и тренировок.<br><br>
+
+                <b>Технологии:</b><br>
+                Tech Fleece — инновационный материал Nike, который сочетает тепло и лёгкость, быстро сохнет и удобен в уходе.<br><br>
+
+                <b>Применение:</b><br>
+                Идеально для активного отдыха, спорта и повседневного ношения в прохладную погоду.<br><br>
+
+                <b>Дизайн:</b><br>
+                Минималистичный стиль, универсальный чёрный цвет, фирменный логотип Nike спереди.
+
+            `,
+            sizes: {
+                        "S": 49976,
+                        "M": 49090,
+                        "L": 61804,
+                    }
+        },
+
+        "Nike Sportswear Tech Fleece Full Zip Hoodie": {
+            imgs: [
+                "img/Nike Sportswear Tech Fleece Full Zip Hoodie(1).jpeg",
+                "img/Nike Sportswear Tech Fleece Full Zip Hoodie(2).jpeg",
+                "img/Nike Sportswear Tech Fleece Full Zip Hoodie(3).jpeg",
+            ],
+            desc: `
+                <b>Материал и поверхность:</b><br>
+                Лёгкий и тёплый материал Tech Fleece с мягкой внутренней подкладкой обеспечивает тепло и комфорт без лишнего объёма.<br><br>
+
+                <b>Конструкция:</b><br>
+                Полная молния спереди, капюшон с регулировкой, длинные рукава с эластичными манжетами, два прорезных кармана спереди для рук и мелких предметов.<br><br>
+
+                <b>Особенности:</b><br>
+                Толстовка отлично сохраняет тепло, обеспечивает свободу движений и подходит для повседневной носки и тренировок.<br><br>
+
+                <b>Технологии:</b><br>
+                Tech Fleece — инновационный материал Nike, который сочетает тепло и лёгкость, быстро сохнет и удобен в уходе.<br><br>
+
+                <b>Применение:</b><br>
+                Идеально для активного отдыха, спорта и повседневного ношения в прохладную погоду.<br><br>
+
+                <b>Дизайн:</b><br>
+                Минималистичный стиль, универсальный чёрный цвет, фирменный логотип Nike спереди.
+
+            `,
+            sizes: {
+                        "L": 97462,
+                        "XL": 112054,
+                        "XXL": 102224,
+                    }
+        },
 
 
 
     };
+
 
 // ===== ПОЛУЧАЕМ ТОВАР ИЗ URL =====
 const params = new URLSearchParams(window.location.search);
@@ -484,6 +587,23 @@ const buyBtn = document.getElementById("kupitBtn");
 // ===== СОСТОЯНИЕ =====
 let selectedSize = null;
 let selectedPrice = null;
+
+// ===== ОПРЕДЕЛЯЕМ ТИП ТОВАРА =====
+let productType = "other";
+
+if (product && product.sizes) {
+    const sizeKeys = Object.keys(product.sizes);
+
+    // обувь — числовые размеры
+    if (sizeKeys.every(k => !isNaN(k))) {
+        productType = "shoes";
+    }
+
+    // одежда — буквенные размеры
+    if (["XS","S","M","L","XL","XXL","XXXL"].some(s => sizeKeys.includes(s))) {
+        productType = "clothes";
+    }
+}
 
 // ===== ЗАГРУЗКА ДАННЫХ =====
 if (product) {
@@ -522,7 +642,7 @@ if (product) {
             buyBtn.classList.remove("disabled");
 
             buyBtn.href =
-                `zakaz-katalog.html?product=${encodeURIComponent(productName)}&size=${size}&price=${price}`;
+                `zakaz-katalog.html?product=${encodeURIComponent(productName)}&size=${size}&price=${price}&type=${productType}`;
         });
 
         sizesBox.appendChild(btn);
@@ -555,9 +675,11 @@ document.addEventListener("keydown", e => {
     }
 });
 
+
 </script>
 
 </body>
 </html>
+
 
 
