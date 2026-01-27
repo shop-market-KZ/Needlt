@@ -81,72 +81,69 @@
 </div>
 
 <script>
-const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
 
-const product = params.get('product');
-const size = params.get('size');
-const price = params.get('price');
+    const product = params.get('product');
+    const size = params.get('size');
+    const price = params.get('price');
+    const type = params.get('type');
 
-// элементы
-const productTitle = document.getElementById('product-title');
-const productInput = document.getElementById('product-input');
-const sizeInput = document.getElementById('size-input');
-const priceInput = document.getElementById('price-input');
+    // элементы
+    const productTitle = document.getElementById('product-title');
+    const productInput = document.getElementById('product-input');
+    const sizeInput = document.getElementById('size-input');
+    const priceInput = document.getElementById('price-input');
 
-const clothesSize = document.getElementById('clothes-size');
-const shoeSize = document.getElementById('shoe-size');
+    const clothesSize = document.getElementById('clothes-size');
+    const shoeSize = document.getElementById('shoe-size');
 
-// ===== ЗАПОЛНЕНИЕ =====
-if (product) {
-    productTitle.textContent = product;
-    productInput.value = product;
-}
+    // ===== ЗАПОЛНЕНИЕ =====
+    if (product) {
+        productTitle.textContent = product;
+        productInput.value = product;
+    }
 
-if (size) {
-    sizeInput.value = size;
-}
+    if (size) {
+        sizeInput.value = size;
+    }
 
-if (price) {
-    priceInput.value = price + " ₸";
-}
+    if (price) {
+        priceInput.value = price + " ₸";
+    }
 
-// ===== ЛОГИКА РАЗМЕРОВ =====
-if (product) {
-    const p = product.toLowerCase();
+    // ===== ЛОГИКА ТИПОВ (БЕЗ ГАДАНИЯ) =====
+    clothesSize.style.display = "none";
+    shoeSize.style.display = "none";
+    clothesSize.required = false;
+    shoeSize.required = false;
 
-    // 👕 одежда
-    if (p.includes('футболка')) {
-        clothesSize.style.display = 'block';
+    if (type === "clothes") {
+        clothesSize.style.display = "block";
         clothesSize.required = true;
         if (size) clothesSize.value = size;
     }
 
-    // 👟 обувь
-    if (
-        p.includes('кеды') ||
-        p.includes('nike') ||
-        p.includes('air force')
-    ) {
-        shoeSize.style.display = 'block';
+    if (type === "shoes") {
+        shoeSize.style.display = "block";
         shoeSize.required = true;
         if (size) shoeSize.value = size;
     }
-}
 
-// ===== СПОСОБ СВЯЗИ =====
-const contactSelect = document.getElementById('contact-method');
-const contactInput = document.getElementById('contact-input');
+    // ===== СПОСОБ СВЯЗИ =====
+    const contactSelect = document.getElementById('contact-method');
+    const contactInput = document.getElementById('contact-input');
 
-contactSelect.addEventListener('change', () => {
-    if (!contactSelect.value) {
-        contactInput.style.display = 'none';
-        contactInput.required = false;
-    } else {
-        contactInput.style.display = 'block';
-        contactInput.placeholder = 'Введите ' + contactSelect.value;
-        contactInput.required = true;
-    }
-});
+    contactSelect.addEventListener('change', () => {
+        if (!contactSelect.value) {
+            contactInput.style.display = 'none';
+            contactInput.required = false;
+        } else {
+            contactInput.style.display = 'block';
+            contactInput.placeholder = 'Введите ' + contactSelect.value;
+            contactInput.required = true;
+        }
+    });
+
 </script>
 
 </body>
