@@ -129,6 +129,10 @@ header {
     z-index: 10;
 }
 
+.Cena {
+    text-align: center;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
     .skele {
@@ -160,6 +164,10 @@ header {
         font-size: 12px;
         padding: 3px 8px;
     }
+
+    .Cena {
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -179,5 +187,9 @@ header {
     .kupit {
         font-size: 13px;
         padding: 8px 0;
+    }
+
+    .Cena {
+        text-align: center;
     }
 }
